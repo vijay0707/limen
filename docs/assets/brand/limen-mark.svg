@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="limen">
+  <title>limen</title>
+  <!--
+    Vector master of the limen portal mark.
+    Geometry measured from the source artwork; brand-kit palette tokens.
+    Gradients only — no blur filters, no blend modes, no clip paths — so it
+    renders identically in every engine, including GitHub's SVG sanitiser.
+  -->
+  <defs>
+    <!-- dark leaf: Ink Navy at the outer edge, lifting to Threshold Blue at the gap -->
+    <linearGradient id="lm-dark" x1="13" y1="62" x2="61" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="#0B0E1C"/>
+      <stop offset="0.70" stop-color="#111426"/>
+      <stop offset="0.92" stop-color="#1F3F8E"/>
+      <stop offset="1"    stop-color="#3768D8"/>
+    </linearGradient>
+    <!-- accent leaf: Soft Lavender at the gap, deepening to Signal Violet -->
+    <linearGradient id="lm-accent" x1="76" y1="62" x2="117" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="#C9A2FF"/>
+      <stop offset="0.38" stop-color="#8050F5"/>
+      <stop offset="1"    stop-color="#B189F3"/>
+    </linearGradient>
+    <!-- the threshold -->
+    <linearGradient id="lm-gap" x1="67" y1="20" x2="67" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="#C9A2FF" stop-opacity="0"/>
+      <stop offset="0.5"  stop-color="#EEF0FF" stop-opacity="0.7"/>
+      <stop offset="0.92" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="1"    stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .leaf-dark { fill: url(#lm-dark); stroke: url(#lm-dark); }
+    @media (prefers-color-scheme: dark) {
+      .leaf-dark { fill: #E8EAF4; stroke: #E8EAF4; }
+    }
+  </style>
+
+  <rect x="64.5" y="22" width="5" height="90" rx="2.5" fill="url(#lm-gap)"/>
+
+  <path class="leaf-dark" stroke-width="8" stroke-linejoin="round"
+        d="M12.7 36.9 L60.2 17.1 L61.0 92.7 L13.8 106.3 Z"/>
+
+  <path fill="url(#lm-accent)" stroke="url(#lm-accent)" stroke-width="8" stroke-linejoin="round"
+        d="M75.6 27.9 L117.2 43.6 L116.7 100.7 L76.4 97.5 Z"/>
+</svg>

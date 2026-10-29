@@ -1,0 +1,19 @@
+name: Publish
+
+# Trusted publishing: no PyPI token in secrets.
+# Configure the publisher once at https://pypi.org/manage/account/publishing/
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv build
+      - uses: pypa/gh-action-pypi-publish@release/v1

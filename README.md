@@ -1,12 +1,18 @@
-# limen
+<p align="center">
+  <img src="https://raw.githubusercontent.com/OWNER/limen/main/docs/assets/brand/limen-logo.png" width="300" alt="limen">
+</p>
 
-**Typed decisions with an explicit threshold — act, abstain, or escalate.**
+<p align="center"><strong>Typed decisions with an explicit threshold — act, abstain, or escalate.</strong></p>
+
+<p align="center">
 
 [![PyPI](https://img.shields.io/pypi/v/limen.svg)](https://pypi.org/project/limen/)
 [![Python](https://img.shields.io/pypi/pyversions/limen.svg)](https://pypi.org/project/limen/)
 [![CI](https://github.com/OWNER/limen/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/limen/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
+</p>
 
 > **Status: alpha.** The API described below is settled in shape but not in detail, and will change before `1.0`. Pin exact versions.
 

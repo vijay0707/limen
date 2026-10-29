@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="limen">
+  <title>limen</title>
+  <!-- Simplified mark for favicons, avatars and anything under ~64px.
+       Wider threshold, flat fills, no glow: survives downscaling. -->
+  <defs>
+    <linearGradient id="sm-accent" x1="78" y1="31" x2="101" y2="103" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8050F5"/>
+      <stop offset="1" stop-color="#C9A2FF"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .sm-dark { fill: #111426; stroke: #111426; }
+    @media (prefers-color-scheme: dark) {
+      .sm-dark { fill: #E8EAF4; stroke: #E8EAF4; }
+    }
+  </style>
+
+  <path class="sm-dark" stroke-width="10" stroke-linejoin="round"
+        d="M27 48 L50 31 L50 103 L27 90 Z"/>
+  <path fill="url(#sm-accent)" stroke="url(#sm-accent)" stroke-width="10" stroke-linejoin="round"
+        d="M78 31 L101 48 L101 90 L78 103 Z"/>
+</svg>

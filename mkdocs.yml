@@ -1,0 +1,25 @@
+site_name: limen
+site_description: Typed decisions with an explicit threshold — act, abstain, or escalate.
+repo_url: https://github.com/OWNER/limen
+
+theme:
+  name: material
+  logo: assets/brand/limen-mark-small.svg
+  favicon: assets/favicon.ico
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      toggle: { icon: material/weather-night, name: Dark mode }
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      toggle: { icon: material/weather-sunny, name: Light mode }
+
+nav:
+  - Home: index.md
+  - Brand: brand.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences

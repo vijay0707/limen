@@ -1,0 +1,64 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "limen"
+version = "0.0.0"
+description = "Typed decisions with an explicit threshold — act, abstain, or escalate."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "OWNER" }]
+keywords = [
+    "llm", "agents", "adk", "decision", "calibration",
+    "guardrails", "routing", "jev", "system-one", "typed-decisions",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+dependencies = ["httpx>=0.27"]
+
+[project.optional-dependencies]
+adk = ["google-adk>=1.0"]
+cli = ["typer>=0.12", "pyarrow>=16", "scikit-learn>=1.4"]
+
+[project.scripts]
+limen = "limen.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/OWNER/limen"
+Issues = "https://github.com/OWNER/limen/issues"
+Changelog = "https://github.com/OWNER/limen/blob/main/CHANGELOG.md"
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=0.23", "ruff>=0.6", "mypy>=1.11"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/limen"]
+
+[tool.hatch.build.targets.sdist]
+exclude = ["docs/", ".github/", "tests/"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+strict = true
+files = ["src/limen"]
