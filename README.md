@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OWNER/limen/main/docs/assets/brand/limen-logo.png" width="300" alt="limen">
+  <img src="https://raw.githubusercontent.com/OWNER/limen/master/docs/assets/brand/limen-logo.png" width="300" alt="limen">
 </p>
 
 <p align="center"><strong>Typed decisions with an explicit threshold — act, abstain, or escalate.</strong></p>
@@ -43,7 +43,7 @@ Python 3.10+. The core has no agent-framework dependency — it is just as usefu
 ## Quickstart
 
 ```python
-from limen import Choice, Noul, QuestionSet, Policy, decide, choice_gate, noul_gate, ACT, ESCALATE
+from limen import Choice, Noul, QuestionSet, Policy, Outcome, decide, choice_gate, noul_gate, ACT, ABSTAIN, ESCALATE
 
 TRIAGE = QuestionSet(
     name="support.triage", version=1,
@@ -69,9 +69,9 @@ ROUTE = Policy(
 verdict = decide(TRIAGE, {"ticket": body, "tier": "business"}, policy=ROUTE)
 
 match verdict.outcome:
-    case ACT:      queues.route(verdict.answers["team"].choice)
-    case ESCALATE: pager.page(body)
-    case _:        llm_triage(body)
+    case Outcome.ACT:      queues.route(verdict.answers["team"].choice)
+    case Outcome.ESCALATE: pager.page(body)
+    case _:                llm_triage(body)
 ```
 
 ## Three outcomes, not two
@@ -237,7 +237,7 @@ State is budgeted, truncated head-and-tail, and field-redacted before it leaves 
 from limen.testing import FakeProvider
 
 def test_destructive_change_escalates():
-    provider = FakeProvider({"destructive": 0.91, "risk": 3.2})
+    provider = FakeProvider({"destructive": 0.91, "risk": 2.8})
     verdict = decide(MIGRATION_REVIEW, {"sql": "DROP TABLE orders"},
                      policy=MIGRATION_GATE, provider=provider)
     assert verdict.outcome is ESCALATE
@@ -255,8 +255,8 @@ Policy logic is pure and deterministic, so the interesting behaviour — thresho
 
 ## Roadmap
 
-- [ ] Core: provider, primitives, `FakeProvider`
-- [ ] Policy types and rule composition
+- [x] Core: provider, primitives, `FakeProvider`
+- [x] Policy types and rule composition
 - [ ] Decision log + sinks
 - [ ] ADK plugin and callbacks
 - [ ] `limen calibrate`

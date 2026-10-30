@@ -38,7 +38,7 @@ limen = "limen.cli:app"
 [project.urls]
 Homepage = "https://github.com/OWNER/limen"
 Issues = "https://github.com/OWNER/limen/issues"
-Changelog = "https://github.com/OWNER/limen/blob/main/CHANGELOG.md"
+Changelog = "https://github.com/OWNER/limen/blob/master/CHANGELOG.md"
 
 [dependency-groups]
 dev = ["pytest>=8", "pytest-asyncio>=0.23", "ruff>=0.6", "mypy>=1.11"]
@@ -52,12 +52,14 @@ exclude = ["docs/", ".github/", "tests/"]
 [tool.ruff]
 line-length = 100
 target-version = "py310"
+extend-exclude = ["*.md"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+asyncio_default_fixture_loop_scope = "function"
 
 [tool.mypy]
 strict = true
